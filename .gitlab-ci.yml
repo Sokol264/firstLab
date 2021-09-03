@@ -1,0 +1,14 @@
+stages:
+  - build
+
+build_job:
+  stage: build
+  only:
+    - branches
+  script:
+    - 'cd lab1'
+    - '"C:\Users\sokol\Downloads\nuget.exe" restore'
+    - '"D:\Program Files\Microsoft Visual Studio\MSBuild\Current\Bin\MSBuild.exe" lab1.sln'  
+  artifacts:
+    paths:
+      - 'lab1\lab1\bin\Debug\lab1.exe'
